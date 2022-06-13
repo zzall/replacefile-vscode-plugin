@@ -2,29 +2,46 @@
   "name": "replacefile-vscode-plugin",
   "displayName": "replaceFile-vscode-plugin",
   "description": "created for file operation",
-  "version": "0.0.1",
+  "version": "1.0.27",
   "engines": {
     "vscode": "^1.67.0"
   },
+  "publisher": "zzailianlian",
   "categories": [
     "Other"
   ],
+  "keywords": [
+    "less",
+    "css",
+    "sass"
+  ],
+  "homepage": "https://github.com/zzailianlian/replacefile-vscode-plugin/blob/master/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zzailianlian/replacefile-vscode-plugin.git"
+  },
   "activationEvents": [
-    "onCommand:replacefile"
+    "onCommand:extension.replacefile"
+  ],
+  "keybindings": [
+    {
+      "command": "extension.replacefile",
+      "key": "ctrl+alt+r"
+    }
   ],
   "main": "./extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "replacefile",
-        "title": "replacefile222"
+        "command": "extension.replacefile",
+        "title": "replacefile current file"
       }
     ],
     "menus": {
       "editor/context": [
         {
           "when": "editorFocus",
-          "command": "replacefile",
+          "command": "extension.replacefile",
           "group": "navigation"
         }
       ]
@@ -33,7 +50,8 @@
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "node ./test/runTest.js"
+    "test": "node ./test/runTest.js",
+    "vsce": "node vsce"
   },
   "devDependencies": {
     "@types/glob": "^7.2.0",
@@ -45,8 +63,9 @@
     "glob": "^8.0.3",
     "mocha": "^10.0.0",
     "typescript": "^4.7.2",
-    "uint8arrays": "^3.0.0",
     "vsce": "^2.9.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "uint8arrays": "^3.0.0"
+  }
 }
